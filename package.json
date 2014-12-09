@@ -1,14 +1,24 @@
 {
-  "name": "Desktop",
-  "version": "1.0.0",
-  "description": "chat app",
+  "name": "chatapp",
+  "version": "0.0.0",
+  "description": "0. `npm install` 0. `node .`",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+	"repository" :
+	  { "type" : "git"
+	  , "url" : "https://github.com/lmuntaner/chat_app"
+	  },
+	"author": "",
   "license": "ISC",
-	"socket.io": "1.0.x",
-	"mime": "~1.2.7",
-	"node-static": "^0.7.4"
+  "bugs": {
+    "url": "https://github.com/lmuntaner/chat_app/issues"
+  },
+  "homepage": "https://github.com/lmuntaner/chat_app",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "node-static": "^0.7.4",
+    "socket.io": "1.0.x"
+  }
 }
