@@ -16,9 +16,9 @@
 	});
 	</script>
 	
-	<script id="message-templ" type="text/template">
+	<script id="message-tmpl" type="text/template">
 		<li class="list-group-item">
-			<%= text %>
+			<%= username %> says: <%= text %>
 		</li>
 	</script>
 </head>
@@ -30,7 +30,10 @@
 
         <form id="send-form" class="form">
           <div class="form-group">
-            <textarea class="form-control" id="new-message"></textarea>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="new-message" placeholder="Enter message"></textarea>
           </div>
 
           <button class="btn btn-primary">send</button>

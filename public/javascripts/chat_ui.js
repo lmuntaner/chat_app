@@ -5,15 +5,19 @@
 	var ChatUI = App.ChatUI = function (chat) {
 		this.chat = chat;
 		this.$messages = $('#messages');
-		this.$newMessage = $('new-message');
+		this.$newMessage = $('#new-message');
+		this.$username = $('#username');
 		this.messageTemplate = _.template($('#message-tmpl').html());
+		
+		this.registerHandlers();
 	};
 	
 	ChatUI.prototype.registerHandlers = function () {
 		var chatUi = this;
 		
-		this.chat.socket.on('message', function (message) {
-			var msg = chatUi.messageTemplate(message);
+		this.chat.socket.on('message', function (data) {
+			data.username = chatUi.chat.username;
+			var msg = chatUi.messageTemplate(data);
 			chatUi.$messages.append(msg);
 		});
 		
@@ -25,6 +29,10 @@
 	
 	ChatUI.prototype.processInput = function () {
 		var text = this.$newMessage.val();
+		var username = this.$username.val();
+		if (username) {
+			this.chat.setUsername(username);
+		}
 		this.chat.sendMessage(text);
 		this.$newMessage.val('');
 	}
