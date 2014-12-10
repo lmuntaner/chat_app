@@ -16,7 +16,6 @@
 		var chatUi = this;
 		
 		this.chat.socket.on('message', function (data) {
-			data.username = chatUi.chat.username;
 			var msg = chatUi.messageTemplate(data);
 			chatUi.$messages.append(msg);
 		});
